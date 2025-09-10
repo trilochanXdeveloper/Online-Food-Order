@@ -26,7 +26,6 @@ public class Order {
 
     @JsonIgnore
     @ManyToOne
-
     private Restaurent restaurant;
 
     private Double totalAmount;

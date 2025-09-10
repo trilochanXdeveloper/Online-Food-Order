@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -13,10 +15,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Orderitem {
     @Id
-    @SequenceGenerator(name = "seq", sequenceName = "ORDER_ITEM_ID_SEQ", initialValue = 96599, allocationSize = 1)
+    @SequenceGenerator(name = "seq", sequenceName = "ORDER_ITEM_ID_SEQ", initialValue = 1000, allocationSize = 1)
     @GeneratedValue(generator = "seq", strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    private Food food;
 
+    private Integer quantity;
+
+    private Double totalPrice;
+
+    private List<String> ingredients;
 
 }

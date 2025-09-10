@@ -7,25 +7,23 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Restaurent {
+@AllArgsConstructor
+public class IngredientsItem {
     @Id
     @SequenceGenerator(name = "seq",sequenceName = "RESTAURANT_ID_SEQ",initialValue = 10,allocationSize = 1)
     @GeneratedValue(generator = "seq",strategy = GenerationType.IDENTITY)
-     private Long id;
-    owner;
-    name;
-    description;
-    cuisineType;
-    address;
-    contactInformation;
-    openingHours;
-    reviews;
-    orders;
-    numRating;
-    images;
-    registrationDate;
-    open;
-    foods;
+    private Long id;
+
+    private String name;
+
+    @ManyToOne
+    private IngredientCategory category;
+
+
+    @ManyToOne
+    private Restaurent restaurent;
+
+    private Boolean inStoke=true;
+
 }
